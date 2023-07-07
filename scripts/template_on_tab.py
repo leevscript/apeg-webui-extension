@@ -13,15 +13,25 @@ PHOTOPEA_IFRAME_LOADED_EVENT = "onPhotopeaLoaded"
 
 # Adds the "Apeg" tab to the WebUI
 def on_ui_tabs():
-    gr.HTML(
-        f"""<iframe id="{PHOTOPEA_IFRAME_ID}"
-        src = "{PHOTOPEA_MAIN_URL}"
-        width = "{PHOTOPEA_IFRAME_WIDTH}"
-        height = "{PHOTOPEA_IFRAME_HEIGHT}"
-        onload = "{PHOTOPEA_IFRAME_LOADED_EVENT}(this)">"""
-    )
+    with gr.Blocks(analytics_enabled=False) as photopea_tab:
+        # Check if Controlnet is installed and enabled in settings, so we can show or hide the "Send to Controlnet" buttons.
+        controlnet_exists = False
+        for extension in extensions.active():
+            if "controlnet" in extension.name:
+                controlnet_exists = True
+                break
 
-    return [(photopea_tab, "Apeg", "apeg_embed")]
+        with gr.Row():
+            # Add an iframe with Photopea directly in the tab.
+            gr.HTML(
+                f"""<iframe id="{PHOTOPEA_IFRAME_ID}"
+                src = "{PHOTOPEA_MAIN_URL}"
+                width = "{PHOTOPEA_IFRAME_WIDTH}"
+                height = "{PHOTOPEA_IFRAME_HEIGHT}"
+                onload = "{PHOTOPEA_IFRAME_LOADED_EVENT}(this)">"""
+            )
+
+    return [(photopea_tab, "Photopea", "photopea_embed")]
 
 # Actually hooks up the tab to the WebUI tabs.
 script_callbacks.on_ui_tabs(on_ui_tabs)
