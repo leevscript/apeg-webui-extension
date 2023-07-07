@@ -4,7 +4,7 @@ from modules.shared import opts
 from modules import extensions
 
 # Handy constants
-PHOTOPEA_MAIN_URL = "https://www.apeg.com/"
+PHOTOPEA_MAIN_URL = "https://www.apeg.cn/"
 PHOTOPEA_IFRAME_ID = "webui-photopea-iframe"
 PHOTOPEA_IFRAME_HEIGHT = 768
 PHOTOPEA_IFRAME_WIDTH = "100%"
@@ -25,7 +25,7 @@ def on_ui_tabs():
             # Add an iframe with Photopea directly in the tab.
             gr.HTML(
                 f"""<iframe id="{PHOTOPEA_IFRAME_ID}"
-                src = "{PHOTOPEA_MAIN_URL}{get_photopea_url_params()}"
+                src = "{PHOTOPEA_MAIN_URL}"
                 width = "{PHOTOPEA_IFRAME_WIDTH}"
                 height = "{PHOTOPEA_IFRAME_HEIGHT}"
                 onload = "{PHOTOPEA_IFRAME_LOADED_EVENT}(this)">"""
