@@ -8,7 +8,6 @@ PHOTOPEA_MAIN_URL = "https://www.apeg.cn/teleprompter?source=webui"
 PHOTOPEA_IFRAME_ID = "webui-apeg-iframe"
 PHOTOPEA_IFRAME_HEIGHT = 768
 PHOTOPEA_IFRAME_WIDTH = "100%"
-PHOTOPEA_IFRAME_LOADED_EVENT = "onPhotopeaLoaded"
 
 
 # Adds the "Apeg" tab to the WebUI
