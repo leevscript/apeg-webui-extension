@@ -4,7 +4,7 @@ from modules.shared import opts
 from modules import extensions
 
 # Handy constants
-PHOTOPEA_MAIN_URL = "https://https://apeg.cn/teleprompter?source=webui"
+PHOTOPEA_MAIN_URL = "https://apeg.cn/teleprompter?source=webui"
 PHOTOPEA_IFRAME_ID = "webui-photopea-iframe"
 PHOTOPEA_IFRAME_HEIGHT = 768
 PHOTOPEA_IFRAME_WIDTH = "100%"
